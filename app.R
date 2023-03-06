@@ -29,7 +29,9 @@ ui <- fluidPage(
                  em("1978 - 2023:")
                ),
               # Display dataset summary
-              verbatimTextOutput("summary")),
+              verbatimTextOutput("summary"),
+              p("We can see during 1978-2023 the temp's range is -3.23 - 3.37.")
+      ),
       tabPanel("Plot",
               sidebarLayout(
                 # Sidebar with plot type and variable selection
@@ -95,7 +97,7 @@ server <- function(input, output) {
   })
   
   output$plot_info <- renderText({
-    paste("The plot displays", input$x_var, "on the x-axis and", input$y_var, "on the y-axis.")
+    paste("The plot displays as", input$x_var, "on the x-axis and", input$y_var, "on the y-axis. As" , input$x_var, "increasing", input$y_var, "increasing.")
   })
   
   # Table page
